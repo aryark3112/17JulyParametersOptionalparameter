@@ -86,26 +86,55 @@
 
 
 //out method
-using System;
+//using System;
 
+//namespace _17JulyParameters
+//{
+//    public class Calc
+//    {
+//        public void BonusCalc(double salary, out double bonus)
+//        {
+//            bonus = salary * 0.2;
+//        }
+//    }
+//    internal class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            double salary = 50000;
+//            double bonus;
+//            Calc calc = new Calc();
+//            calc.BonusCalc(salary, out bonus);
+//            Console.WriteLine($"Salary: \t {salary} and Bonus : {bonus}");
+//            Console.ReadKey();
+//        }
+//    }
+//}
+
+//Param method
+using System;
 namespace _17JulyParameters
 {
     public class Calc
     {
-        public void BonusCalc(double salary, out double bonus)
+        public double Add(params double[] numbers )
         {
-            bonus = salary * 0.2;
+            double total=0;
+            foreach (double number in numbers)
+            {
+                total += number;
+            }
+            return total;
         }
     }
     internal class Program
     {
         static void Main(string[] args)
         {
-            double salary = 50000;
-            double bonus;
             Calc calc = new Calc();
-            calc.BonusCalc(salary, out bonus);
-            Console.WriteLine($"Salary: \t {salary} and Bonus : {bonus}");
+            
+            Console.WriteLine("Result after adding 1,12,23.5 is = \t "+calc.Add(1,12,23.5));
+            Console.WriteLine("Result after adding 10,12, is = \t " + calc.Add(10,12));
             Console.ReadKey();
         }
     }
