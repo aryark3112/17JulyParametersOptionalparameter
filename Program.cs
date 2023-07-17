@@ -58,14 +58,41 @@
 //    }
 //}
 
+//ref method
+//using System;
+
+//namespace _17JulyParameters
+//{
+//    public class Calc
+//    {
+//        public void BonusCalc(double salary, ref double bonus)
+//        {
+//            bonus = salary * 0.2;
+//        }
+//    }
+//    internal class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            double salary = 50000;
+//            double bonus = 500;
+//            Calc calc = new Calc();
+//            calc.BonusCalc(salary, ref bonus);
+//            Console.WriteLine($"Salary: \t {salary} and Bonus : {bonus}");
+//            Console.ReadKey();
+//        }
+//    }
+//}
+
+
+//out method
 using System;
 
-//Call by Parameter
 namespace _17JulyParameters
 {
     public class Calc
     {
-        public void BonusCalc(double salary, ref double bonus)
+        public void BonusCalc(double salary, out double bonus)
         {
             bonus = salary * 0.2;
         }
@@ -75,9 +102,9 @@ namespace _17JulyParameters
         static void Main(string[] args)
         {
             double salary = 50000;
-            double bonus = 500;
+            double bonus;
             Calc calc = new Calc();
-            calc.BonusCalc(salary, ref bonus);
+            calc.BonusCalc(salary, out bonus);
             Console.WriteLine($"Salary: \t {salary} and Bonus : {bonus}");
             Console.ReadKey();
         }
